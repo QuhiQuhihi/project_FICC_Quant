@@ -14,6 +14,7 @@ debugpy==1.6.3
 decorator==5.1.1
 defusedxml==0.7.1
 entrypoints==0.4
+et-xmlfile==1.1.0
 executing==1.1.0
 fastjsonschema==2.16.2
 fonttools==4.37.4
@@ -44,6 +45,7 @@ nbformat==5.6.1
 nest-asyncio==1.5.6
 notebook==6.4.12
 numpy==1.23.3
+openpyxl==3.0.10
 packaging==21.3
 pandas==1.5.0
 pandocfilters==1.5.0
@@ -69,6 +71,7 @@ qtconsole==5.3.2
 QtPy==2.2.1
 QuantLib==1.27
 requests==2.28.1
+seaborn==0.12.0
 Send2Trash==1.8.0
 setuptools==63.4.1
 six==1.16.0
@@ -83,4 +86,5 @@ wcwidth==0.2.5
 webencodings==0.5.1
 wheel==0.37.1
 widgetsnbextension==4.0.3
+xlwings==0.28.0
 zipp==3.8.1
