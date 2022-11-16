@@ -104,7 +104,7 @@ def swap_curve(today, quote):
 
     return depoFuturesSwapCurve
 
-def cds_curve(today, cds_quote, discount, discount_curve):
+def cds_curve(today, quote, discount_curve):
     # Set Evaluation Date
     todays_date = ql.Date(today.day, today.month, today.year)
     ql.Settings.instance().evaluationDate = todays_date
@@ -142,7 +142,7 @@ def cds_curve(today, cds_quote, discount, discount_curve):
         recovery_rate,
         ql.YieldTermStructureHandle(discount_curve)
         )
-        for spread, tenor in zip(cds_quote['Market.Mid', tenors])]
+    for spread, tenor in zip(quote['Market.Mid'], tenors)]
     
     cds_curve = ql.PiecewiseFlatHazardRate(todays_date, cdsHelpers, day_count)
 
@@ -166,8 +166,8 @@ if __name__ == "__main__":
     irs_quote = get_irs_quote(today=todays_date)
     cds_quote = get_cds_quote(today=todays_date)
 
-    discount_curve = swap_curve(today=todays_date, irs_quote=irs_quote)
-    hazard_curve = cds_curve(today=todays_date, cds_quote=cds_curve, discount=discount_curve)
+    discount_curve = swap_curve(today=todays_date, quote=irs_quote)
+    hazard_curve = cds_curve(today=todays_date, quote=cds_quote, discount_curve=discount_curve)
 
     cds_quote['default prob'] = np.nan
     cds_quote['survival prob'] = np.nan
