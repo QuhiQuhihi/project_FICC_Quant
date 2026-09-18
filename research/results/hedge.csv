@@ -1,0 +1,2 @@
+bond_face,swap_notional_per100_bond,swap_units,fixed_coupon,bond_signed_quote_dv01,swap_signed_quote_dv01,hedged_signed_quote_dv01
+100,100.97445289614271,1.009744528961427,0.03959824109418278,-0.062460273473810446,0.061857501261288306,-6.938893903907228e-18

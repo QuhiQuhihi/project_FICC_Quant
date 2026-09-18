@@ -1,0 +1,42 @@
+{
+  "run_utc": "2026-09-18T16:57:29.739695+00:00",
+  "python": "3.12.14 (main, Sep  1 2026, 14:16:52) [Clang 22.1.3 ]",
+  "platform": "Linux",
+  "settings": {
+    "valuation_date": "2026-09-15",
+    "quote_kind": "constructed illustrative",
+    "QuantLib": "1.43",
+    "tolerance": 1e-08
+  },
+  "source_and_code": {
+    "pyproject.toml": "c36a72600b8923cc05cb59bb6ef192c4015c6c93c48b38cfa67ec9120cd03fe0",
+    "uv.lock": "bd02dad7790caf73fb8fb071f8ba3ba32d6a2a4778f0906e1001b433f3c56ed4",
+    "research/PROTOCOL.md": "25b147478dc93a1d9a3faad9bd93d307a6f683a40c2917a1e654e44a64514196",
+    "research/data/input_manifest.json": "82709004facfa87ab5f9da542cd581f51b19e14063b00f2b968a0566fa92f1a1",
+    "research/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "research/build_notebook.py": "ac7f29a57291b13d8b7c5e80efbface13376166045c380696da848c0f7c193b7",
+    "research/check_artifacts.py": "60090cf7f76147b6dc4f55b003d9a6ce50bef3edee7e6aef1ccad0e88eaa6878",
+    "research/common.py": "f6a87ab1fe76838155011e55e7a964e6912d7f0025a1b862eff96538a4ac8f02",
+    "research/pricing.py": "28461f61d476dcaef60e341e5c661c46242bffc26b16684ca0446c435f658964",
+    "research/run_study.py": "781f8274020a923c5a66036ca6cdc304b52d8bd086a3fa690678976615701742"
+  },
+  "artifacts": {
+    "research/figures/calibration.png": "c3d6cf4a43b96d1a3db26f7cb10296ca7a86778868617829b90cfbb79f71f543",
+    "research/figures/curves.png": "01b71d317d240addc21d94a1267b8e51453f9a936b49cde7530d89f22873f515",
+    "research/figures/hedge.png": "47251b6e69befa58cd2b61b96c6abd4fdf2bd7bf6944f2db7fbeaf303e946f02",
+    "research/figures/risk.png": "90eb23708ed19bf5fd4d9a51ab10c3816f63d302785e05dfad0ec95d613d6b12",
+    "research/results/bump_convergence.csv": "457cefd8f8386fbcbffe84777abdf03adf25045bca893b9b4fc4b75e74d9392f",
+    "research/results/calibration.csv": "963552607fd1edb409f27388e6136ee3914a508b9ba57a3dc1caf013f8533b6d",
+    "research/results/cashflows.csv": "51699c41274e1ab0e194d338c4c5c956572172572a6e9e48b716fdd31174e515",
+    "research/results/convention_effects.csv": "df2886d70fb5f39dff754f712d128ec8580a4d7ae382a0bd9e631b41177b19d7",
+    "research/results/curve_nodes.csv": "20ca4f6e50843619e569ef4e805db91d943331e98ed04dee7358a7418f9ccaeb",
+    "research/results/fx_parity.csv": "98783a6664ccc5bbbe9f26f5b2185cf638e7f13010c85095ead9c7f951f71704",
+    "research/results/headline.json": "ca4f880ce80327ed978319e39e209018ff3b6c76665ab5792dfb9d55e08607c9",
+    "research/results/hedge.csv": "44ed723c8145e01f46c55e296c95a9bfced331e9e8d0a443a9117ab3bf8c98ee",
+    "research/results/independent_risk.csv": "9363f72c1d533e2d421e8478b78bf39d262c212b040db860801fc2aad41520de",
+    "research/results/quote_buckets.csv": "d9ac4d309c6fb874e0bc437f0d38ce2ae38af6816a2a525e7a173dd31a364818",
+    "research/results/scenario_pnl.csv": "c06051f9a71afe3b121d8ae28b5a8781397db579dbf71b4d5f8ceb6564ca8fdd",
+    "research/results/valuation.csv": "ffedd6867b27f8bae903346d64650b0af0becfb18b1fa214b6e38d71d24eca3a"
+  },
+  "private_artifacts": {}
+}

@@ -1,0 +1,167 @@
+[
+  {
+    "path": "10_Cross_Currency_Swap.ipynb",
+    "sha256": "32e51bc17f0b1e0a7915cc6ce76d4a29fbb3569977b9022b12f924439b531d66",
+    "disposition": "Superseded notebook: original on old; saved results withdrawn from maintained evidence."
+  },
+  {
+    "path": "11_Credit_Default_Swap.ipynb",
+    "sha256": "c78bfc7fca3a4c3d278b0086d422e1ebd49d26f507270c08437270c9fa9915bc",
+    "disposition": "Superseded notebook: original on old; saved results withdrawn from maintained evidence."
+  },
+  {
+    "path": "1_black_scholes.ipynb",
+    "sha256": "ddbb5415e25e35b1ac7eee818bd42343bcd708447a94c42c9cc591dd3ade5268",
+    "disposition": "Superseded notebook: original on old; saved results withdrawn from maintained evidence."
+  },
+  {
+    "path": "2_yield_curve.ipynb",
+    "sha256": "87689398ce11edde84dfb317afd8d4e07a42a960b2253b8ce507c1b534f16e82",
+    "disposition": "Superseded notebook: original on old; saved results withdrawn from maintained evidence."
+  },
+  {
+    "path": "3_inverted_rate_curve.ipynb",
+    "sha256": "47fd4a4457e9aa592769ce1ca296e6ce563db8c13457c553911a6a169c85d3c0",
+    "disposition": "Superseded notebook: original on old; saved results withdrawn from maintained evidence."
+  },
+  {
+    "path": "4_treasury_pricing.ipynb",
+    "sha256": "ea22bce4e48a5235eef926c7cbf2193898599c80ee796bd2225d8144b2f28eaf",
+    "disposition": "Superseded notebook: original on old; saved results withdrawn from maintained evidence."
+  },
+  {
+    "path": "5_greeks_for_bond.ipynb",
+    "sha256": "4617d1c1fe807319eb70c052c232c5c12b4d87cdd1ff4fd676cfa48b917329f2",
+    "disposition": "Superseded notebook: original on old; saved results withdrawn from maintained evidence."
+  },
+  {
+    "path": "6_swap_curve.ipynb",
+    "sha256": "22576f32ef198d3537f3e50e4fa2ec1506f63d532562f6c74843dc3b07779147",
+    "disposition": "Superseded notebook: original on old; saved results withdrawn from maintained evidence."
+  },
+  {
+    "path": "7_forward_rate_agreement.ipynb",
+    "sha256": "e0b925023dd8bd2ef4e625e7da120d2c661e70d5cbd4a25e566f409e752655e0",
+    "disposition": "Superseded notebook: original on old; saved results withdrawn from maintained evidence."
+  },
+  {
+    "path": "8_Interesr_Rate_Swap.ipynb",
+    "sha256": "415c5bf70ad0c970e5f310acbd6c636bab06b1560168ab05077ac5430b3fdba1",
+    "disposition": "Superseded notebook: original on old; saved results withdrawn from maintained evidence."
+  },
+  {
+    "path": "9_FX_forward.ipynb",
+    "sha256": "f2058906c0334d24ec5a2f5be408913f8270db7c64d8feb60a3cafd1e596072a",
+    "disposition": "Superseded notebook: original on old; saved results withdrawn from maintained evidence."
+  },
+  {
+    "path": "market_data/2022-06-13/AMR_OVME_call.JPG",
+    "sha256": "d3241a478ecbeb371795fff488a2fa292500eca1e9138b0ec818e9119f95e390",
+    "disposition": "Historical data/third-party asset: local recovery only; provenance or redistribution rights not established."
+  },
+  {
+    "path": "market_data/2022-06-13/AMR_OVME_put.JPG",
+    "sha256": "e728e981864111dc49314904e87dd7c8d86390fcb612546403c55a76a61b22a0",
+    "disposition": "Historical data/third-party asset: local recovery only; provenance or redistribution rights not established."
+  },
+  {
+    "path": "market_data/2022-06-13/EUR_OVME_call.JPG",
+    "sha256": "bcdc92e645c55c2835459773661b33499fc50f1f4b4a169250d6391bcf80abeb",
+    "disposition": "Historical data/third-party asset: local recovery only; provenance or redistribution rights not established."
+  },
+  {
+    "path": "market_data/2022-06-13/EUR_OVME_put.JPG",
+    "sha256": "33e50a838afc0da7964e94cbf268a131853d863d8bdf5e2f3170d646aa3c6e11",
+    "disposition": "Historical data/third-party asset: local recovery only; provenance or redistribution rights not established."
+  },
+  {
+    "path": "market_data/2022-06-13/dividend_forecastJPG.JPG",
+    "sha256": "0f9cb74c996004a0859f132e84c3f621d648a6e5f065a9701ae1a965f9f8bdea",
+    "disposition": "Historical data/third-party asset: local recovery only; provenance or redistribution rights not established."
+  },
+  {
+    "path": "market_data/2022-06-13/spx_omon_call_put.JPG",
+    "sha256": "58a12e5594d6ef1c40d868d6ae00bc77410fb0e162323470543b18d8b01f5817",
+    "disposition": "Historical data/third-party asset: local recovery only; provenance or redistribution rights not established."
+  },
+  {
+    "path": "market_data/2022-06-13/spx_omon_center_strike.JPG",
+    "sha256": "caff5ae5fa243ad4b24888f661a763a2b67ea6083a80b3466325fa803c97e42b",
+    "disposition": "Historical data/third-party asset: local recovery only; provenance or redistribution rights not established."
+  },
+  {
+    "path": "market_data/2022-06-14/AMR_OVME_call.JPG",
+    "sha256": "a36c724733bd282113c1b03a5ad3bca5e82de065f432242ed5b1a2c80def8d89",
+    "disposition": "Historical data/third-party asset: local recovery only; provenance or redistribution rights not established."
+  },
+  {
+    "path": "market_data/2022-06-14/AMR_OVME_put.JPG",
+    "sha256": "7c3aa54929c00608116e6ef5df744d648779793f2822bf780d075528538ffc12",
+    "disposition": "Historical data/third-party asset: local recovery only; provenance or redistribution rights not established."
+  },
+  {
+    "path": "market_data/2022-06-14/EUR_OVME_call.JPG",
+    "sha256": "19d9fd46906e7b348580ab9ccc942eaae98649188553e31e71edd615c90e18cc",
+    "disposition": "Historical data/third-party asset: local recovery only; provenance or redistribution rights not established."
+  },
+  {
+    "path": "market_data/2022-06-14/EUR_OVME_put.JPG",
+    "sha256": "abae1b783beb262dcd4713ec0062bb7df537234eab895256adfd1458d860726b",
+    "disposition": "Historical data/third-party asset: local recovery only; provenance or redistribution rights not established."
+  },
+  {
+    "path": "market_data/2022-06-14/spx_omon_call_put.JPG",
+    "sha256": "e787290f2ed9a0a912be4ca42de4126f09851cafd8d3d0297e812635e40e37f5",
+    "disposition": "Historical data/third-party asset: local recovery only; provenance or redistribution rights not established."
+  },
+  {
+    "path": "market_data/2022-06-14/spx_omon_center_strike.JPG",
+    "sha256": "7ce7702f4708967a264c2418a5c45324d15bdb10d3f180bee68f4e9de9290029",
+    "disposition": "Historical data/third-party asset: local recovery only; provenance or redistribution rights not established."
+  },
+  {
+    "path": "market_data/cds_data.xlsx",
+    "sha256": "e1aab5ca460dd9add3a32188dffe7b9233b50ecbb4bd54b8c2f5530ff1c2b43e",
+    "disposition": "Historical data/third-party asset: local recovery only; provenance or redistribution rights not established."
+  },
+  {
+    "path": "market_data/fx_swap_data.xlsx",
+    "sha256": "d08a002d3d713015274cea93f840c548fa101be244094dd70922d69626819769",
+    "disposition": "Historical data/third-party asset: local recovery only; provenance or redistribution rights not established."
+  },
+  {
+    "path": "market_data/swap_data.xlsx",
+    "sha256": "9505c9710d579cf382908da00daf1248370da34fe0e9d7db27bee683b8afd155",
+    "disposition": "Historical data/third-party asset: local recovery only; provenance or redistribution rights not established."
+  },
+  {
+    "path": "post_assets/inverted_curve.png",
+    "sha256": "6c03dca2f856088a09d3f1ed39e08757ee290ed781b131c04631712bca35f644",
+    "disposition": "Historical data/third-party asset: local recovery only; provenance or redistribution rights not established."
+  },
+  {
+    "path": "quant_lib/cds_curve.py",
+    "sha256": "da93f535236148d01615e0aa0e0390e0a0e947f9a05001b8ed9de3f207ee8acc",
+    "disposition": "Superseded implementation: original on old; maintained workflow replaces hidden state and unvalidated assumptions."
+  },
+  {
+    "path": "quant_lib/curve.py",
+    "sha256": "6b32307459010a2101bcb28d2ffa46391e2811d42223059f87a875a0d30a11e0",
+    "disposition": "Superseded implementation: original on old; maintained workflow replaces hidden state and unvalidated assumptions."
+  },
+  {
+    "path": "quant_lib/fx_swap_curve.py",
+    "sha256": "6a3bd505f64597a6a071f52db39cb420ecc389483c2151e60e1e9ef81a80d598",
+    "disposition": "Superseded implementation: original on old; maintained workflow replaces hidden state and unvalidated assumptions."
+  },
+  {
+    "path": "quant_lib/swap_curve.py",
+    "sha256": "e02ed4027ee9864c2d83cbf26d2fe07f269477e62c9a7f89d3d39e0172841c27",
+    "disposition": "Superseded implementation: original on old; maintained workflow replaces hidden state and unvalidated assumptions."
+  },
+  {
+    "path": "requirements.txt",
+    "sha256": "c8a0395991c2c86489297ab6fdac679087c4f5b55cf08c7af17b3648b3254c68",
+    "disposition": "Historical data/third-party asset: local recovery only; provenance or redistribution rights not established."
+  }
+]

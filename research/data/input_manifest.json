@@ -1,0 +1,14 @@
+{
+  "kind": "illustrative_not_market",
+  "created": "2026-09-19",
+  "valuation_date": "2026-09-15",
+  "author": "This project numerical fixture",
+  "units": "annual decimal par rates, tenor years",
+  "license": "Original illustrative numbers; no market-source attribution",
+  "inputs": [
+    {
+      "path": "research/data/illustrative_quotes.csv",
+      "sha256": "0cb34531a21c5441d4541ff8c3ce320df390c105d9d05e55e0f9e50e1c4b5716"
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+quote,spot,maturity,usd_discount,eur_discount,fair_forward,usd_pv_at_fair,usd_pv_strike_plus_1cent,assumption
+USD per EUR,1.1,2027-09-15,0.9629015433171958,0.9753099120283326,1.1141750791417666,0.0,-0.009629015433171961,zero basis; compatible collateral; illustrative EUR curve
