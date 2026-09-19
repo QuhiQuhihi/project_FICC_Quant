@@ -11,7 +11,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import numpy as np
 import pandas as pd
 import nbformat
-from research.common import ROOT, RESULTS, check_hashes, load_returns
+from research.common import ROOT, RESULTS, check_hashes, load_returns, provenance, sha
 
 
 def public_checks():
@@ -52,7 +52,8 @@ def public_checks():
     markdown = [
         ROOT / "README.md",
         ROOT / "PUBLICATION.md",
-        *list((ROOT / "docs").glob("*.md")),
+        *list((ROOT / "docs").rglob("*.md")),
+        *list((ROOT / "topics").rglob("*.md")),
         *list((ROOT / "research").glob("*.md")),
     ]
     for p in markdown:
@@ -62,17 +63,45 @@ def public_checks():
             target = link.split("#")[0]
             if target and not (p.parent / target).exists():
                 raise ValueError(f"Broken link in {p.name}: {link}")
-    nb = nbformat.read(ROOT / "study.ipynb", as_version=4)
-    nbformat.validate(nb)
-    code = [c for c in nb.cells if c.cell_type == "code"]
-    if not code or any(c.execution_count is None for c in code):
-        raise ValueError("Notebook is unexecuted")
-    if any(o.output_type == "error" for c in code for o in c.get("outputs", [])):
-        raise ValueError("Notebook has errors")
-    if not any("image/png" in o.get("data", {}) for c in code for o in c.get("outputs", [])):
-        raise ValueError("No notebook figures")
+    from research.topic_content import TOPICS
+
+    manifest = json.loads((ROOT / "research/topics_manifest.json").read_text())["topics"]
+    if set(manifest) != {chapter["slug"] for chapter in TOPICS}:
+        raise ValueError("Topic coverage differs from the maintained eleven-chapter collection")
+    notebooks = [ROOT / "study.ipynb"]
+    for chapter in TOPICS:
+        record = manifest[chapter["slug"]]
+        path = ROOT / record["notebook"]
+        if record["source_and_code"] != provenance():
+            raise ValueError("Topic source provenance changed: " + chapter["slug"])
+        if (
+            sha(path) != record["notebook_sha256"]
+            or sha(path.parent / "README.md") != record["readme_sha256"]
+        ):
+            raise ValueError("Topic content changed after execution: " + chapter["slug"])
+        notebooks.append(path)
+    total_cells = 0
+    for path in notebooks:
+        nb = nbformat.read(path, as_version=4)
+        nbformat.validate(nb)
+        code = [c for c in nb.cells if c.cell_type == "code"]
+        if not code or any(c.execution_count is None for c in code):
+            raise ValueError("Notebook is unexecuted: " + str(path))
+        if any(o.output_type == "error" for c in code for o in c.get("outputs", [])):
+            raise ValueError("Notebook has errors: " + str(path))
+        if not any("image/png" in o.get("data", {}) for c in code for o in c.get("outputs", [])):
+            raise ValueError("No notebook figures: " + str(path))
+        for cell in nb.cells:
+            if cell.cell_type != "markdown":
+                continue
+            for link in re.findall(r"\]\(([^)]+)\)", cell.source):
+                if not re.match(r"https?://|mailto:|#", link):
+                    target = link.split("#")[0]
+                    if target and not (path.parent / target).exists():
+                        raise ValueError(f"Broken notebook link in {path}: {link}")
+        total_cells += len(code)
     print(
-        f"Public checks: {len(code)} executed cells, links/figures valid; no raw-history download"
+        f"Public checks: {len(notebooks)} notebooks, {total_cells} executed cells; topic hashes, links and figures valid"
     )
 
 

@@ -25,3 +25,16 @@ claimed empirical study: the completed scope is numerical valuation/hedge valida
 Contribution: a connected input/convention/calibration/cash-flow/risk/hedge experiment,
 independent PV and zero-spread checks, and a quantified indexed-coupon convention correction.
 Internal repricing accuracy, numerical error, model risk and execution economics remain separate.
+
+## Topic collection references and assumptions
+
+- [QuantLib analytic European engine](https://github.com/lballabio/QuantLib/blob/master/ql/pricingengines/vanilla/analyticeuropeanengine.cpp), reviewed 19 September 2026: primary implementation reference for the option formula comparison.
+- [BIS, Covered interest parity lost](https://www.bis.org/publications/qr-201609/covered-interest-parity-lost-understanding-cross-currency-basis), reviewed 19 September 2026: currency funding/basis context; no empirical figures or data are reproduced.
+- [ISDA CDS Standard Model](https://www.cdsmodel.com/), reviewed 19 September 2026: identifies the standard-contract comparison needed beyond this chapter's continuous-premium illustration. No ISDA implementation or test-grid match is claimed.
+
+Additional authored assumptions are visible in [topic sources](topic_content.py) and each
+notebook: BSM spot/strike 100, one year, continuous r=4%, q=1%, volatility=20%; a separate
+October accrued-interest example with flat 3.5%; six-to-nine-month deterministic FRA;
+five-year fixed-for-fixed currency legs with USD 4%, EUR 2.5% and zero basis; five-year
+continuous-premium CDS with r=3.5%, hazard=2%, recovery=40%. They are constructed teaching
+inputs, not downloaded series, observations or empirical evidence.

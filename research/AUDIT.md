@@ -17,3 +17,8 @@ Disposition: yield/swap curves, bond pricing/risk and IRS become the connected c
 Scope: dated, explicitly constructed SOFR-style OIS quotes and a synthetic USD 3-month term index permit numerical model validation. These are not observed market prices or current traded USD LIBOR. A bond, dual-curve term swap and frozen hedge demonstrate convention/model risk. The NY Fed overnight reference is not a complete swap quote set; Treasury par yields are not used as a collateral discount curve. Empirical mispricing or executable arbitrage is outside the completed numerical study.
 
 Recovery: `git show old:<path>` or ignored `research/private-legacy/<path>`. Original history is intentionally preserved, not publication-cleared.
+
+Presentation supplement: the maintained research collection now restores navigation across
+all eleven original subject areas with newly authored notes and executed illustrative
+notebooks. This supersedes the earlier archival-only disposition for introductory BSM, FRA,
+cross-currency and CDS coverage; it does not validate the legacy implementations or data.

@@ -26,3 +26,36 @@ The maintained Git tree omits raw vendor histories, ignored recovery material, e
 caches. Historical credential/rights boundaries remain in [publication review](../PUBLICATION.md).
 
 Final Git review: original `old` reference verified; maintained Markdown links resolve within the staged tree. Tracked evidence hashes match staged bytes, and raw/recovery/environment paths are absent. `.gitattributes` preserves Linux source line endings and exact hashed CSV serializer bytes. Staged whitespace checks pass.
+
+## Research presentation and topic collection — 19 September 2026
+
+The README now introduces the economic research questions and all eleven original subject
+areas, with direct links to each chapter's notes and notebook. Setup commands moved to
+`docs/reproduction.md`. The main pipeline updates only the explicitly marked numerical
+result paragraph and preserves the authored introduction and navigation.
+
+Output/recovery: `topics/*/README.md` and `topics/*/study.ipynb`; source narratives and visible
+calculations in `research/topic_content.py`; per-chapter execution provenance in
+`research/topics_manifest.json`; ignored HTML previews under `research/preview/topics/`.
+The builder saves one fully executed chapter at a time, so failed runs preserve earlier
+completed artifacts. Recovery is `research/run_study.py`, `research/build_topics.py`
+(optionally `--topic <slug>`), then `research/build_notebook.py` and `research/check_artifacts.py`.
+Each chapter checks the pinned core fixture/source/output vintage before calculations.
+
+The complete first execution passed all analytical assertions in eleven fresh kernels.
+All eleven chapter figures were inspected; two legends were changed from internal column
+names to research labels, followed by final regeneration. The primary bond, hedge and
+scenario results are unchanged. New options, FRA, currency and credit calculations are
+explicitly illustrative teaching exercises with boundaries stated in each chapter.
+
+Final topic-collection checks passed: `research/build_topics.py` executed all 11 chapters;
+`research/build_notebook.py` executed the connected study again; `research/check_artifacts.py`
+and its `--public` mode validated 12 notebooks, 47 executed code cells, chapter/source hashes,
+local Markdown/notebook links and independent core calculations. There are 15 embedded
+figures in total. All 11 chapter figures were inspected, including the corrected legends;
+11 HTML previews were checked for embedded image/table structure. No full browser-layout
+certification is claimed. The 5 existing pricing tests and Ruff lint/format checks pass.
+The README introduction and all 11 notebook navigation links remain intact after regeneration;
+its result block matches the generated result paragraph. No subtask commit or push was made.
+
+Independent-review correction: the inversion notebook now asserts the steepener and flattener spread-change identities and the independently expected +88.8889/-88.8889 bp changes. All chapter notebooks and the connected study were regenerated for the changed shared source fingerprint. Full/public artifact checks pass again: 12 notebooks, 47 executed code cells, valid hashes/links and reconciled calculations. Primary valuation and hedge results are unchanged.

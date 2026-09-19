@@ -58,3 +58,13 @@ spreadsheets and screenshots are preserved on old and in ignored local recovery.
 FRA, cross-currency swaps and CDS are not claimed validated extensions.
 
 Implementation convention made explicit during independent reconciliation: use indexed Ibor coupons in both term-curve helpers and the valued swap. Forward rates use index value/maturity dates and index accrual, then scale by the actual coupon accrual; holiday-adjusted schedules can make those periods differ. The par-coupon approximation is not silently mixed with indexed coupons.
+
+## Teaching collection supplement — 19 September 2026
+
+Eleven maintained topic chapters now introduce the original product areas. Their standalone
+notebooks use the core fixture or explicitly stated additional illustrative assumptions.
+They do not change the primary bond/swap hedge hypothesis, inputs, scenarios or acceptance
+tolerances above. BSM adds formula/engine/parity checks; FRA uses deterministic settlement;
+cross-currency swaps use fixed-for-fixed par legs with zero basis; CDS uses continuous premiums
+and constant hazard. The latter examples are analytical teaching cases, not full contract or
+market validation. See [topic overview](../README.md) and each chapter's stated limits.
