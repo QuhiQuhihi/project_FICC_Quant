@@ -12,9 +12,9 @@ uv run python research/build_notebook.py
 uv run python research/check_artifacts.py
 ```
 
-The first command after setup rebuilds the connected curve/valuation/hedge study. The topic builder executes all eleven chapters in fresh kernels and saves each notebook only after its calculations and assertions succeed. The final builder refreshes the connected study and its provenance after the topic artifacts are available.
+The first command after setup rebuilds the connected curve/valuation/hedge study. The topic builder executes all fourteen chapters in fresh kernels and saves each notebook only after its calculations and assertions succeed. The final builder refreshes the connected study and its provenance after the topic artifacts are available.
 
-After a source or assumption change, rebuild `research/run_study.py` first so the source and fixture checks match the new study. To rerun one chapter, use `uv run python research/build_topics.py --topic 07-forward-rate-agreements`. Finish with `research/build_notebook.py` and `research/check_artifacts.py` so the aggregate evidence remains current. Rebuilding a chapter refreshes its README from the authored narrative in `research/topic_content.py`; edit that source when revising a chapter.
+After a source or assumption change, rebuild `research/run_study.py` first so the source and fixture checks match the new study. To rerun one chapter, use `uv run python research/build_topics.py --topic 07-forward-rate-agreements`. Finish with `research/build_notebook.py` and `research/check_artifacts.py` so the aggregate evidence remains current. Rebuilding a chapter refreshes its README from the authored narrative in `research/topic_content.py` and `research/desk_content.py`; edit those sources when revising a chapter.
 
 Outputs are the root `study.ipynb`, `topics/*/study.ipynb`, summary evidence under `research/results/`, and local HTML previews under `research/preview/`. Every notebook discovers the repository from its own directory or the repository root. A failed execution leaves the last completed notebook intact; rerun the same command to recover.
 

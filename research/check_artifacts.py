@@ -67,7 +67,7 @@ def public_checks():
 
     manifest = json.loads((ROOT / "research/topics_manifest.json").read_text())["topics"]
     if set(manifest) != {chapter["slug"] for chapter in TOPICS}:
-        raise ValueError("Topic coverage differs from the maintained eleven-chapter collection")
+        raise ValueError("Topic coverage differs from the maintained QuantLib chapter collection")
     notebooks = [ROOT / "study.ipynb"]
     for chapter in TOPICS:
         record = manifest[chapter["slug"]]

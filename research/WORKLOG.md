@@ -59,3 +59,37 @@ The README introduction and all 11 notebook navigation links remain intact after
 its result block matches the generated result paragraph. No subtask commit or push was made.
 
 Independent-review correction: the inversion notebook now asserts the steepener and flattener spread-change identities and the independently expected +88.8889/-88.8889 bp changes. All chapter notebooks and the connected study were regenerated for the changed shared source fingerprint. Full/public artifact checks pass again: 12 notebooks, 47 executed code cells, valid hashes/links and reconciled calculations. Primary valuation and hedge results are unchanged.
+
+## QuantLib desk direction — 19 September 2026
+
+The user requested practical QuantLib coverage rather than a featured one-swap hedge result.
+The root README now introduces fourteen desk questions with brief descriptions, specific
+QuantLib objects and direct links to notes and notebooks. It includes three learning paths.
+The integrated bond/swap case remains linked evidence; `run_study.py` no longer injects its
+numerical result into the overview.
+
+Five substantive workflows were added or expanded. FRA now instantiates the library's
+contract using the locked index-first constructor and checks independent start settlement,
+discounted PV and opposite positions. CDS now bootstraps illustrative spread helpers and
+prices an explicit quarterly contract; separate midpoint cash-flow sums reconcile scheduled
+premiums, default accrual, protection and total PV. New chapters expose quote notifications
+and curve relinking, cap/floor optionlet pricing and European swaption annuity pricing.
+All inputs are illustrative and each chapter distinguishes its contract/model conventions
+from a complete market implementation. Primary QuantLib API/source references were checked.
+
+Canonical desk content is `research/desk_content.py`, imported by `research/topic_content.py`.
+Output/recovery remains one atomic `topics/<slug>/study.ipynb` and README per successful
+chapter, plus `research/topics_manifest.json` and ignored HTML previews. The complete replay
+is `research/run_study.py`, `research/build_topics.py`, then `research/build_notebook.py`.
+Source fingerprints include the new content module and protocol amendment; metadata was
+regenerated from calculations rather than hand-edited.
+
+Final execution evidence: all 14 topic notebooks and the integrated notebook executed in
+fresh kernels without cell errors: 15 notebooks, 56 code cells, 18 embedded figures.
+`research/check_artifacts.py` passed both public-file/topic checks and independent saved-output
+reconciliation with current source hashes. All 5 existing pricing tests passed; Ruff lint,
+Ruff format and `git diff --check` passed. All five new/expanded figures were inspected;
+all 14 topic HTML previews contain embedded images and result tables. No browser-layout
+certification is claimed. The README retains fourteen direct notebook links after regeneration.
+The integrated valuation/hedge results are unchanged. Agent/Codex instruction names remain
+ignored. No subtask commit or push was made; publication is handled by the parent task.

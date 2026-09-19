@@ -1,5 +1,5 @@
 {
-  "run_utc": "2026-09-19T03:43:51.200318+00:00",
+  "run_utc": "2026-09-19T05:15:00.988156+00:00",
   "python": "3.12.14 (main, Sep  1 2026, 14:16:52) [Clang 22.1.3 ]",
   "platform": "Linux",
   "settings": {
@@ -11,16 +11,17 @@
   "source_and_code": {
     "pyproject.toml": "c36a72600b8923cc05cb59bb6ef192c4015c6c93c48b38cfa67ec9120cd03fe0",
     "uv.lock": "bd02dad7790caf73fb8fb071f8ba3ba32d6a2a4778f0906e1001b433f3c56ed4",
-    "research/PROTOCOL.md": "96c64030f88d43af006213e0912863f3b6cd6438cdb7df43fd74d358b493775e",
+    "research/PROTOCOL.md": "aa418367ff8aeda36696143cd144ddc35185607ec5a9767d66dc3a1381881798",
     "research/data/input_manifest.json": "82709004facfa87ab5f9da542cd581f51b19e14063b00f2b968a0566fa92f1a1",
     "research/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "research/build_notebook.py": "ac7f29a57291b13d8b7c5e80efbface13376166045c380696da848c0f7c193b7",
     "research/build_topics.py": "a76a0d014dfb0cb2bf16ba5890d02c13f914164aec2e418929ca2fa07583cd4d",
-    "research/check_artifacts.py": "5ad9708dab939cf6e4b0816bee28749155e159c98d052fc037a6e8016aea21e4",
+    "research/check_artifacts.py": "bbd07b0a39d13c325c480bf5b24736fedf0375c0ae30180271b9f36c7ad07e07",
     "research/common.py": "f6a87ab1fe76838155011e55e7a964e6912d7f0025a1b862eff96538a4ac8f02",
+    "research/desk_content.py": "1c53c5b4b8534a7d946b5817692f43192a5bbcfd9cfcf49af6a010cb0f5ce91d",
     "research/pricing.py": "28461f61d476dcaef60e341e5c661c46242bffc26b16684ca0446c435f658964",
-    "research/run_study.py": "fe55e4df4cb1758896f2a30bc307f994e00440d64d002a99eaae3e013ea0e3e9",
-    "research/topic_content.py": "4a49ed2cfe8b710c7e54f351b6c522745af467397d912b32509476a58cda9403"
+    "research/run_study.py": "edb880eabe57e5c34907b8f556e50d2d61b70b46a793924974b17b915f17448d",
+    "research/topic_content.py": "69d6de13ddd4f4f263d326a431942a1920852d448c1ce45c4b4e72a5474b05d4"
   },
   "artifacts": {
     "research/figures/calibration.png": "c3d6cf4a43b96d1a3db26f7cb10296ca7a86778868617829b90cfbb79f71f543",

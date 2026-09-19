@@ -294,16 +294,6 @@ def main():
             + f"""With USD per EUR spot 1.10, the one-year illustrative fair forward is **{fwd:.6f} USD/EUR**. Its discounted cash-flow PV is zero to numerical tolerance under zero-basis, compatible-collateral assumptions. This verifies signs and parity, not executable cross-currency arbitrage.\n\nThe core is validated numerically. Live collateral, fixing, instrument and quote evidence is still required for a market study. The [topic collection](../README.md) provides additional options, FRA, currency and credit exercises with their own stated numerical assumptions and limits. See [conventions and methods](01-methods.md), [protocol](../research/PROTOCOL.md), [source register](../research/SOURCES.md), and [unrun extensions](../research/RESEARCH_AGENDA.md).\n"""
         )
         (ROOT / "docs/02-results.md").write_text(findings)
-        readme = ROOT / "README.md"
-        if readme.exists():
-            content = readme.read_text()
-            start, end = "<!-- STUDY_RESULT_START -->", "<!-- STUDY_RESULT_END -->"
-            if start in content and end in content:
-                before, rest = content.split(start, 1)
-                _, after = rest.split(end, 1)
-                readme.write_text(
-                    before + start + "\n" + findings.split("\n\n")[1] + "\n" + end + after
-                )
         (RESULTS / "headline.json").write_text(
             json.dumps(
                 {

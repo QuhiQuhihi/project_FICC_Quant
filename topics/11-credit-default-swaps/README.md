@@ -1,21 +1,19 @@
-# Credit default swaps
+# CDS hazard calibration and credit legs
 
-Relate survival, recovery and protection payments to the premium leg.
+Bootstrap survival from a spread strip, price a quarterly CDS, and reconcile premium and protection legs.
 
 [Open the executed notebook](study.ipynb) · [Browse all topics](../../README.md)
 
-A CDS protection buyer pays premiums while a reference entity survives and receives compensation after a covered default. Pricing requires both the survival distribution and the loss given default; a credit spread alone does not uniquely identify default probability without further assumptions.
+A credit desk needs more than the approximation spread ≈ loss-given-default × hazard. A CDS curve must reproduce quoted contracts under declared premium, default and settlement conventions.
 
-This chapter uses a continuous-premium approximation with constant risk-neutral hazard $\lambda$, recovery $R$ and discount rate $r$. Survival is $Q(t)=e^{-\lambda t}$. The risky premium annuity is $A=\int_0^T e^{-(r+\lambda)t}dt$ and the protection value per unit notional is $(1-R)\lambda A$. The fair continuous spread is therefore $s^*=(1-R)\lambda$.
+This notebook constructs illustrative 1Y, 3Y and 5Y spreads of 80, 110 and 140 bp with recovery 40%, then uses `SpreadCdsHelper` and `PiecewiseFlatHazardRate`. The discount curve is the collection's OIS fixture. Helpers use zero settlement days, quarterly premiums, Following, Forward schedule generation and Actual/360. Helper implied quotes must match the input strip within $10^{-8}$ decimal rate units. Survival must remain between zero and one and decrease with maturity.
 
-At $T=5$, $r=3.5\%$, $\lambda=2\%$ and $R=40\%$, numerical quadrature independently checks the analytical annuity. The notebook compares premium and protection values, plots fair spreads across hazard/recovery assumptions, and verifies that the fair contract has zero PV. The probabilities are model assumptions under a pricing measure, not estimated frequencies or default forecasts.
+Next, `CreditDefaultSwap` and `MidPointCdsEngine` value a separate five-year protection-buyer ticket with running premium 100 bp, notional 100, protection starting on the reference date, quarterly Forward schedule, Actual/360, premium accrued on default, payment at default, no accrual rebate and zero cash-settlement days. It is intentionally an off-market ticket, not an assertion that its conventions equal every calibration-helper convention. The notebook independently sums survival-weighted premiums, accrued premium at midpoint default and loss-given-default payments; it then reprices the ticket at its own fair spread.
 
-Continuous premiums avoid the quarterly coupon schedule and accrued premium at default that a standard contract needs. The example omits upfront payments, settlement delays, restructuring/documentation terms and calibration to a spread term structure. It is an analytical teaching case, not an implementation or validation of the ISDA Standard Model.
-
-For standard contract pricing and consistent conversion between upfront amounts and quoted spreads, the primary reference is the [ISDA CDS Standard Model](https://www.cdsmodel.com/). A credible market extension would compare an implementation against its test grids using fully specified dates, recovery and input curves.
+Midpoint default integration is a numerical approximation. This example is not an ISDA Standard Model validation and uses neither standard IMM contracts nor observed credit quotes. Hazard is a pricing-measure input, not a physical default forecast. References: [QuantLib Python CDS example](https://github.com/lballabio/QuantLib-SWIG/blob/master/Python/examples/cds.py), [midpoint engine](https://github.com/lballabio/QuantLib/blob/master/ql/pricingengines/credit/midpointcdsengine.cpp), and [ISDA model](https://www.cdsmodel.com/).
 
 ## What to take away
 
-The fair continuous premium is 120 bp/year for the declared 2% hazard and 40% recovery. Different recovery assumptions map the same hazard to different spreads; this does not calibrate a standard quarterly CDS.
+The spread helpers reprice, survival is valid, and independently summed midpoint cash flows reproduce QuantLib's two legs and total PV. The ticket's fair spread belongs to its stated contract conventions; it is not automatically the five-year helper quote.
 
 [Source register](../../research/SOURCES.md) · [Full valuation and hedge study](../../study.ipynb)

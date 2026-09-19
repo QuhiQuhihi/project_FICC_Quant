@@ -22,3 +22,13 @@ Presentation supplement: the maintained research collection now restores navigat
 all eleven original subject areas with newly authored notes and executed illustrative
 notebooks. This supersedes the earlier archival-only disposition for introductory BSM, FRA,
 cross-currency and CDS coverage; it does not validate the legacy implementations or data.
+
+
+QuantLib desk supplement: fourteen maintained chapters now lead the project. FRA constructs
+a real `ForwardRateAgreement`; CDS bootstraps a hazard curve and prices a discrete quarterly
+contract with independent midpoint leg reconciliation. New chapters cover observable quotes
+and relinkable handles, caps/floors with optionlet sums, and European physical swaptions.
+This supersedes the analytical-only FRA/CDS scope in the earlier supplement, while retaining
+explicit model/contract limits. It does not rehabilitate legacy code or vendor inputs.
+The root overview introduces practical desk questions and links every chapter; numerical
+hedge outcomes remain in the integrated case rather than being injected into the overview.

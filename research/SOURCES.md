@@ -30,11 +30,29 @@ Internal repricing accuracy, numerical error, model risk and execution economics
 
 - [QuantLib analytic European engine](https://github.com/lballabio/QuantLib/blob/master/ql/pricingengines/vanilla/analyticeuropeanengine.cpp), reviewed 19 September 2026: primary implementation reference for the option formula comparison.
 - [BIS, Covered interest parity lost](https://www.bis.org/publications/qr-201609/covered-interest-parity-lost-understanding-cross-currency-basis), reviewed 19 September 2026: currency funding/basis context; no empirical figures or data are reproduced.
-- [ISDA CDS Standard Model](https://www.cdsmodel.com/), reviewed 19 September 2026: identifies the standard-contract comparison needed beyond this chapter's continuous-premium illustration. No ISDA implementation or test-grid match is claimed.
+- [ISDA CDS Standard Model](https://www.cdsmodel.com/), reviewed 19 September 2026: identifies the standard-contract comparison needed beyond the midpoint-engine illustration. No ISDA implementation or test-grid match is claimed.
 
 Additional authored assumptions are visible in [topic sources](topic_content.py) and each
 notebook: BSM spot/strike 100, one year, continuous r=4%, q=1%, volatility=20%; a separate
 October accrued-interest example with flat 3.5%; six-to-nine-month deterministic FRA;
 five-year fixed-for-fixed currency legs with USD 4%, EUR 2.5% and zero basis; five-year
-continuous-premium CDS with r=3.5%, hazard=2%, recovery=40%. They are constructed teaching
+the earlier continuous-premium CDS sketch with r=3.5%, hazard=2%, recovery=40%
+(superseded by the desk supplement below). They are constructed teaching
 inputs, not downloaded series, observations or empirical evidence.
+
+## QuantLib desk examples
+
+The expanded FRA/CDS chapters and new handle, cap/floor and swaption chapters use original
+illustrative inputs, visible in `research/desk_content.py` and the executed notebooks. No
+external quote dataset was added. Installed QuantLib 1.43 signatures were checked directly.
+Primary implementation/API references consulted on 19 September 2026:
+
+- [FRA source](https://github.com/lballabio/QuantLib/blob/master/ql/instruments/forwardrateagreement.cpp): constructor variants, settlement and discounting.
+- [QuantLib Python CDS example](https://github.com/lballabio/QuantLib-SWIG/blob/master/Python/examples/cds.py): spread helpers and hazard bootstrapping.
+- [Midpoint CDS engine](https://github.com/lballabio/QuantLib/blob/master/ql/pricingengines/credit/midpointcdsengine.cpp): default timing and premium accrual.
+- [Handle source](https://github.com/lballabio/QuantLib/blob/master/ql/handle.hpp) and [simple quote](https://github.com/lballabio/QuantLib/blob/master/ql/quotes/simplequote.hpp): observer updates and relinking.
+- [Caps/floors API](https://quantlib-python-docs.readthedocs.io/en/latest/instruments/caps.html) and [Black engine](https://github.com/lballabio/QuantLib/blob/master/ql/pricingengines/capfloor/blackcapfloorengine.cpp): floating-leg options.
+- [Swaption engines](https://quantlib-python-docs.readthedocs.io/en/latest/pricing_engines/swaptions.html) and [Black swaption implementation](https://github.com/lballabio/QuantLib/blob/master/ql/pricingengines/swaption/blackswaptionengine.hpp): physical European pricing.
+
+Numerical formula reconciliations are independently authored teaching calculations. Agreement
+with a selected engine validates that stated implementation, not alternative market conventions.

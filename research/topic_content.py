@@ -1,5 +1,7 @@
 """Authored narratives and visible notebook calculations; original illustrative inputs."""
 
+from research.desk_content import ADDITIONAL_TOPICS, CDS, FRA
+
 TOPICS = [
     {
         "slug": "01-bsm-options",
@@ -249,51 +251,7 @@ fig.tight_layout();plt.show()
         "conclusion": "Both curves reproduce their own calibration instruments. Substituting the discount curve for term projection changes the swap PV while its contractual fixed coupon remains unchanged.",
         "kind": "Illustrative numerical exercise",
     },
-    {
-        "slug": "07-forward-rate-agreements",
-        "title": "Forward rate agreements",
-        "teaser": "Connect a forward borrowing rate to the sign and settlement of an FRA.",
-        "body": r"""An FRA isolates interest on one future borrowing period. The buyer in this chapter receives floating and pays fixed, so a realized fixing above the agreed strike creates a positive settlement amount.
-
-For dates $T_1,T_2$ and accrual $\tau$, the simple projection-implied forward is $L=[P^{proj}(T_1)/P^{proj}(T_2)-1]/\tau$. An end-paid linear interest difference is $N\tau(L-K)$. The standard start-paid FRA transforms that amount into $N\tau(L-K)/(1+\tau L)$ using the observed fixing at $T_1$.
-
-The exercise uses a period from six to nine months after the reference date, notional 100 and Actual/360 accrual. It computes the forward from the illustrative projection curve and compares strikes 50 bp below, at and above it. Under the explicitly deterministic rate-path assumption, it discounts the start settlement with the OIS discount factor to show its current value. The at-forward contract is zero and buyer/seller signs are opposite.
-
-The division by $1+\tau L$ makes start settlement nonlinear in the future fixing. Treating $L$ as a known path value here is an analytical illustration; in a stochastic multi-curve model, replacing that fixing by one simple forward does not by itself price the expectation or settlement convexity. Futures/FRA convexity adjustments, historical fixings, broken dates and actual contract settlement conventions are not estimated.
-
-The chapter therefore teaches rate/strike direction and settlement mechanics without claiming a production FRA engine. Its period and currency conventions are declared rather than inherited from an unrelated index.""",
-        "calculation": r"""
-with valuation_date():
-    discount,projection,_=curves()
-    start=CAL.advance(DATE,ql.Period(6,ql.Months))
-    end=CAL.advance(DATE,ql.Period(9,ql.Months))
-    tau=ql.Actual360().yearFraction(start,end)
-    forward=(projection.discount(start)/projection.discount(end)-1)/tau
-    rows=[]
-    for spread in [-.005,0,.005]:
-        strike=forward+spread
-        terminal=100*tau*(forward-strike)
-        settlement=terminal/(1+tau*forward)
-        rows.append({'strike_pct':strike*100,'forward_pct':forward*100,'end_interest_difference':terminal,'start_settlement':settlement,'deterministic_start_PV':discount.discount(start)*settlement})
-fra=pd.DataFrame(rows)
-assert abs(fra.iloc[1].deterministic_start_PV)<1e-12
-assert fra.iloc[0].start_settlement>0>fra.iloc[2].start_settlement
-assert np.allclose(fra.start_settlement*(1+tau*forward),fra.end_interest_difference)
-print(f'Accrual {start.ISO()} to {end.ISO()}; Actual/360 fraction {tau:.6f}')
-display(fra.round(6))
-""",
-        "figure": r"""
-fig,ax=plt.subplots(figsize=(7,4))
-fixings=np.linspace(max(-.01,forward-.02),forward+.02,80)
-settlement=100*tau*(fixings-forward)/(1+tau*fixings)
-ax.plot(100*fixings,settlement,color='#315b7d');ax.axhline(0,color='#555555',lw=.8)
-ax.axvline(100*forward,color='#bc6c25',ls='--',label='Fixed strike')
-ax.set(xlabel='Illustrative realized fixing (%)',ylabel='Start settlement per 100 notional',title='Receive-floating FRA: settlement direction')
-ax.legend();fig.tight_layout();plt.show()
-""",
-        "conclusion": "At the projected forward, the deterministic FRA has zero settlement value. A higher fixing benefits the receive-floating party. Start settlement differs from an end-paid interest difference and needs an explicit convention.",
-        "kind": "Illustrative numerical exercise",
-    },
+    FRA,
     {
         "slug": "08-interest-rate-swaps",
         "title": "Interest rate swaps",
@@ -419,42 +377,6 @@ ax.legend();fig.tight_layout();plt.show()
         "conclusion": "The two par legs and the initial principal exchange balance at inception. The remaining fixed cash flows still carry FX exposure; a zero initial value does not imply a risk-free position. No market currency basis is estimated.",
         "kind": "Illustrative numerical exercise",
     },
-    {
-        "slug": "11-credit-default-swaps",
-        "title": "Credit default swaps",
-        "teaser": "Relate survival, recovery and protection payments to the premium leg.",
-        "body": r"""A CDS protection buyer pays premiums while a reference entity survives and receives compensation after a covered default. Pricing requires both the survival distribution and the loss given default; a credit spread alone does not uniquely identify default probability without further assumptions.
-
-This chapter uses a continuous-premium approximation with constant risk-neutral hazard $\lambda$, recovery $R$ and discount rate $r$. Survival is $Q(t)=e^{-\lambda t}$. The risky premium annuity is $A=\int_0^T e^{-(r+\lambda)t}dt$ and the protection value per unit notional is $(1-R)\lambda A$. The fair continuous spread is therefore $s^*=(1-R)\lambda$.
-
-At $T=5$, $r=3.5\%$, $\lambda=2\%$ and $R=40\%$, numerical quadrature independently checks the analytical annuity. The notebook compares premium and protection values, plots fair spreads across hazard/recovery assumptions, and verifies that the fair contract has zero PV. The probabilities are model assumptions under a pricing measure, not estimated frequencies or default forecasts.
-
-Continuous premiums avoid the quarterly coupon schedule and accrued premium at default that a standard contract needs. The example omits upfront payments, settlement delays, restructuring/documentation terms and calibration to a spread term structure. It is an analytical teaching case, not an implementation or validation of the ISDA Standard Model.
-
-For standard contract pricing and consistent conversion between upfront amounts and quoted spreads, the primary reference is the [ISDA CDS Standard Model](https://www.cdsmodel.com/). A credible market extension would compare an implementation against its test grids using fully specified dates, recovery and input curves.""",
-        "calculation": r"""
-from scipy.integrate import quad
-T,r,hazard,recovery,notional=5.0,.035,.02,.40,100.0
-annuity=-np.expm1(-(r+hazard)*T)/(r+hazard)
-quadrature=quad(lambda t:np.exp(-(r+hazard)*t),0,T)[0]
-fair_spread=(1-recovery)*hazard
-premium=notional*fair_spread*annuity
-protection=notional*(1-recovery)*hazard*annuity
-assert abs(annuity-quadrature)<1e-12
-assert abs(protection-premium)<1e-12
-assert 0<np.exp(-hazard*T)<1
-summary=pd.DataFrame([{'hazard_pct':100*hazard,'recovery_pct':100*recovery,'five_year_survival':np.exp(-hazard*T),'fair_continuous_spread_bp':1e4*fair_spread,'premium_PV':premium,'protection_PV':protection}])
-display(summary.round(6))
-""",
-        "figure": r"""
-hazards=np.linspace(.001,.06,60)
-fig,ax=plt.subplots(figsize=(7,4))
-for rec,color in [(0.2,'#315b7d'),(0.4,'#bc6c25'),(0.6,'#718355')]:
-    ax.plot(100*hazards,1e4*(1-rec)*hazards,label=f'Recovery {rec:.0%}',color=color)
-ax.set(xlabel='Assumed risk-neutral annual hazard (%)',ylabel='Fair continuous premium (bp/year)',title='CDS spread depends on both hazard and recovery')
-ax.legend();fig.tight_layout();plt.show()
-""",
-        "conclusion": "The fair continuous premium is 120 bp/year for the declared 2% hazard and 40% recovery. Different recovery assumptions map the same hazard to different spreads; this does not calibrate a standard quarterly CDS.",
-        "kind": "Illustrative numerical exercise",
-    },
+    CDS,
+    *ADDITIONAL_TOPICS,
 ]

@@ -1,7 +1,8 @@
 # FICC numerical-validation protocol — 19 September 2026
 
-Primary question: how much curve/convention risk remains after neutralizing parallel rate risk
-with one swap? This is a constructed-input study, not observed mispricing or market calibration.
+Collection direction: hands-on QuantLib implementations for FICC desk valuation and risk.
+The integrated case asks how much curve/convention risk remains after neutralizing parallel
+rate risk with one swap. This is a constructed-input study, not observed mispricing or market calibration.
 Dates and quotes below are assumptions fixed before valuation. The empirical quote objective
 is not claimed complete: no independently documented executable OIS/term/basis set is supplied.
 
@@ -68,3 +69,28 @@ tolerances above. BSM adds formula/engine/parity checks; FRA uses deterministic 
 cross-currency swaps use fixed-for-fixed par legs with zero basis; CDS uses continuous premiums
 and constant hazard. The latter examples are analytical teaching cases, not full contract or
 market validation. See [topic overview](../README.md) and each chapter's stated limits.
+
+## QuantLib desk supplement — 19 September 2026
+
+The collection now emphasizes fourteen standalone implementation chapters. This amendment
+changes presentation and adds numerical exercises; the original bond/swap inputs and
+scenario specification above remain the integrated case, with no new empirical claim.
+
+FRA now constructs an actual QuantLib contract using the explicit-maturity constructor,
+matching synthetic index period and dual curves, and reconciles settlement and long/short PV.
+CDS replaces the continuous-only sketch with 80/110/140 bp 1Y/3Y/5Y illustrative spread
+helpers, 40% recovery, quarterly Actual/360 Forward schedules and a piecewise-flat hazard
+curve. A separate off-market 5Y 100 bp protection-buyer contract has explicit protection start,
+default accrual, no accrual rebate and zero settlement days; independent midpoint sums
+reconcile both legs. Its contract differs from helper defaults and is not an IMM/ISDA validation.
+
+New quotes/handles, cap/floor and European-swaption notebooks use actual QuantLib objects.
+Quote risk shocks a flat continuous 3.5% zero rate on a 2Y zero-coupon bond; this is not
+market-quote DV01. Caps/floors use a 6M-forward 3Y quarterly leg, strike 4%, notional 100,
+20% Black optionlet volatility and independent optionlet sums. Swaptions use 1Y exercise
+into a 5Y physical-settlement swap, annual fixed/quarterly floating, notional 100, dual curves
+and 20% Black swap-rate volatility, with direct Black-price and payer/receiver parity checks.
+All dates, calendars, accruals and index assumptions are visible in each notebook.
+Acceptance: finite PVs; independent identities within 1e-10 currency (FRA 1e-12); helper
+repricing within 1e-8 decimal spread; valid survival; restored quotes/links after scenarios.
+These are controlled numerical tests, not volatility/credit market calibration or trading results.
